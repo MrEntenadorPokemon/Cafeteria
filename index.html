@@ -3,79 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andre Siqueiros</title>
+    <title>Andre Siqueiros | Cafetería Alexia</title>
+    <!-- Importamos fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/styles.css"> 
+
 </head>
 <body>
+    
+    <!-- BANNER PROMOCIONAL SUPERIOR -->
+    <div class="banner-promo" id="bannerPromo">
+        <span class="banner-texto">
+            ¡PROMOCIÓN DE LA SEMANA! 10% de descuento en Croissants. Quedan <span id="promoSegundos">30</span> segundos.
+        </span>
+        <button class="btn-cerrar-banner" id="cerrarBanner" aria-label="Cerrar banner de promoción">
+            &times;
+        </button>
+    </div>
+    
     <header>
         <div class="container">
-            <h1>Cafeteria Alexia</h1>
-            <p class="muted">Cafe de Especialidad y pan artesanal en Hermosillo.
-
-                <nav aria-label="Navegacion principal">
-
-                </nav>
-            </p>
+            <h1>Cafetería Alexia</h1>
+            <p class="muted">Café de Especialidad y pan artesanal en Hermosillo.</p>
+            
+            <nav aria-label="Navegacion principal">
+                <a href="#Menu">Menú</a>
+                <a href="#articulos">Blog</a>
+                <a href="#Galeria">Galería</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
         </div>
     </header>
 
     <main class="container">
         <section id="Menu" aria-labelledby="titulo-menu">
-            <h2 id="titulo-menu">Menu</h2>
-            <p class="muted"> Bebidas y panes del dia</p>
+            <h2 id="titulo-menu">Nuestro Menú de Especialidad</h2>
+            <p class="muted" style="margin-bottom: 20px;">¡Gira las tarjetas para ver más detalles y notas de cata!</p>
 
-            <div class="grid grid-3">
-                <article>
-                    <figure>
-                        <img src="cafe.jpg" alt="Espresso servido en taza" />
-                        <figcaption>Espresso Simple</figcaption>
-                    </figure>
-                    <h3>Espresso Simple</h3>
-                    <p>Extraccion Precisa, tueste medio. <span class="pill">Nuevo</span></p>
-                    <table>
-                        <thead>
-                            <tr><th>Tamaños</th><th>Precio</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Simple</td><td>$35</td></tr>
-                            <tr><td>Doble</td><td>$45</td></tr>
-                        </tbody>
-                    </table>
+            <!-- Usamos la clase de grid para las tarjetas 3D -->
+            <div class="grid-reposteria">
+                
+                <!-- Tarjeta 1: Espresso Simple -->
+                <article class="tarjeta">
+                    <div class="tarjeta-inner">
+                        <div class="tarjeta-front">
+                            <img src="https://incapto.com/wp-content/uploads/2020/09/C-Espresso-scaled.jpg" alt="Espresso servido en taza" />
+                            <h3>Espresso Simple</h3>
+                            <p class="muted">Gira para ver precios</p>
+                        </div>
+                        <div class="tarjeta-back">
+                            <h3>Espresso Simple</h3>
+                            <p>Extracción precisa de 18 gramos de café, tueste medio.</p>
+                            <table>
+                                <tbody>
+                                    <tr><td>Simple</td><td>$35</td></tr>
+                                    <tr><td>Doble</td><td>$45</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="nota-barista">Nota Barista: Ideal para despertar el paladar con notas a chocolate amargo.</p>
+                        </div>
+                    </div>
                 </article>
 
-                <article>
-                    <figure>
-                        <img src="cafe.jpg" alt="Latte" width="100%" height="auto"/>
-                        <figcaption>Latte Clasico</figcaption>
-                    </figure>
-                    <h3>Latte</h3>
-                    <p>Suave con leche vaporizada.</p>
-                    <table>
-                        <thead>
-                            <tr><th>Tamaños</th><th>Precio</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>12 oz</td><td>$55</td></tr>
-                            <tr><td>16 oz</td><td>$65</td></tr>
-                        </tbody>
-                    </table>
+                <!-- Tarjeta 2: Latte Clasico -->
+                <article class="tarjeta">
+                    <div class="tarjeta-inner">
+                        <div class="tarjeta-front">
+                            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="Latte" />
+                            <h3>Latte</h3>
+                            <p class="muted">Gira para ver precios</p>
+                        </div>
+                        <div class="tarjeta-back">
+                            <h3>Latte Clásico</h3>
+                            <p>Suave combinación de espresso y leche vaporizada con una capa de microespuma. Pide tu arte latte favorito.</p>
+                            <table>
+                                <tbody>
+                                    <tr><td>12 oz</td><td>$55</td></tr>
+                                    <tr><td>16 oz</td><td>$65</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="nota-barista">Nota Barista: Usa leche de Sonora para una dulzura natural.</p>
+                        </div>
+                    </div>
                 </article>
 
-                <article>
-                    <figure>
-                        <img src="croassant.jpg" alt="Croassant" width="100%" height="auto"/>
-                        <figcaption>Croassant</figcaption>
-                    </figure>
-                    <h3>Croassant</h3>
-                    <p>Delicioso pan hojaldrado.</p>
-                    <table>
-                        <thead>
-                            <tr><th>Variante</th><th>Precio</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Clasico</td><td>$38</td></tr>
-                            <tr><td>Chocolate</td><td>$45</td></tr>
-                        </tbody>
-                    </table>
+                <!-- Tarjeta 3: Croissant -->
+                <article class="tarjeta">
+                    <div class="tarjeta-inner">
+                        <div class="tarjeta-front">
+                            <img src="https://comedera.com/wp-content/uploads/sites/9/2022/02/croissant-relleno-de-chocolate.jpg" alt="Croissant" />
+                            <h3>Croissant <span class="pill">Promo</span></h3>
+                            <p class="muted">Gira para ver precios</p>
+                        </div>
+                        <div class="tarjeta-back">
+                            <h3>Croissant</h3>
+                            <p>Pan hojaldrado con mantequilla de la mejor calidad. ¡Se deshace en la boca!</p>
+                            <table>
+                                <tbody>
+                                    <tr><td>Clásico</td><td>$38</td></tr>
+                                    <tr><td>Chocolate</td><td>$45</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="nota-barista">Nota Barista: ¡El acompañamiento perfecto para tu espresso doble!</p>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
@@ -85,81 +117,83 @@
 
             <div class="grid grid-2">
                 <div>
-                <article>
-                    <h3>Que es un expresso perfecto?</h3>
-                    <p class="muted"><time datetime="2025-08-26">26 de Agosto de 2025</time> - 3 min de lectura</p>
-                    <p>Un expresso perfecto equilibra aroma, cuerpo y acidez. Factores clave incluyen la calidad del grano, la molienda y la técnica de extracción.</p>
-                    <p><a href="#leer-mas-expresso">Leer más...</a></p>
-                </article>
+                    <article>
+                        <h3>¿Qué es un espresso perfecto?</h3>
+                        <p class="muted"><time datetime="2025-08-26">26 de Agosto de 2025</time> - 3 min de lectura</p>
+                        <p>Un espresso perfecto equilibra aroma, cuerpo y acidez. Factores clave incluyen la calidad del grano, la molienda y la técnica de extracción.</p>
+                        <p><a href="#leer-mas-expresso">Leer más...</a></p>
+                    </article>
 
-                <article>
-                    <h1>De la finca a tu taza</h1>
-                    <p class="muted"><time datetime="2025-08-20">20 de Agosto de 2025</time> - 4 min de lectura</p>
-                    <p>El viaje del café comienza en la finca, donde se cultivan los granos. Cada etapa, desde la cosecha hasta el tueste, influye en el sabor final.</p>
-                    <p><a href="#leer-mas-finca">Leer más...</a></p>
-                </article>
+                    <article>
+                        <h3>De la finca a tu taza</h3>
+                        <p class="muted"><time datetime="2025-08-20">20 de Agosto de 2025</time> - 4 min de lectura</p>
+                        <p>El viaje del café comienza en la finca, donde se cultivan los granos. Cada etapa, desde la cosecha hasta el tueste, influye en el sabor final.</p>
+                        <p><a href="#leer-mas-finca">Leer más...</a></p>
+                    </article>
+                </div>
 
                 <aside aria-label="Informacion adicional">
-                    <h4> Horarios y ubicacion </h4>
+                    <h4>Horarios y Ubicación</h4>
                     <address>
-                        Blvd. Universidad 76, Hermosillo, Sonora<br>
-                        Lun-Sab: 8:00 AM - 6:00 PM - Dom: Cerrado
+                        Blvd. Universidad 76,<br>
+                        Hermosillo, Sonora<br><br>
+                        <strong>Lun-Sab:</strong> 8:00 AM - 6:00 PM<br>
+                        <strong>Dom:</strong> Cerrado
                     </address>
-                    <p class="muted">WI-FI gratis - Pet friendly - Terraza</p>
+                    <p class="muted" style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px;">WI-FI gratis • Pet friendly • Terraza</p>
                 </aside>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="Galeria" aria-labelledby="titulo-galeria">
-                <h2 id="titulo-galeria">Galeria</h2>
-                <div class="grid grid-3">
-                    <figure>
-                        <img src="cafe.jpg" alt="Taza de cafe espresso" width="100%" height="auto"/>
-                        <figcaption>Espresso</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="cafe.jpg" alt="Latte con arte latte" width="100%" height="auto"/>
-                        <figcaption>Latte</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="croassant.jpg" alt="Croassant" width="100%" height="auto"/>
-                        <figcaption>Croassant</figcaption>
-                    </figure>
-                </div>
-            </section>
+        <section id="Galeria" aria-labelledby="titulo-galeria">
+            <h2 id="titulo-galeria">Galería</h2>
+            <div class="grid grid-3">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80" alt="Taza de cafe espresso"/>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Latte con arte latte"/>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Croissant"/>
+                </figure>
+            </div>
+        </section>
 
-            <section id="contacto" aria-labelledby="titulo-contacto">
-                <h3 id="titulo-contacto">Contacto</h3>
-                <form accept="#" method="post">
-                    <div>
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Su Nombre" required />
-                    </div>
-                    <div>
-                        <label for="email">Correo:</label>
-                        <input type="email" id="email" name="email" placeholder="Su Correo" required />
-                    </div>
-                    <div>
-                        <label for="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                    </div>
-                    <button type="submit">Enviar</button>
-                    <p class="muted">Gracias por contactarnos. Te responderemos pronto.</p>
-                </form>
-            </section>
+        <section id="contacto" aria-labelledby="titulo-contacto">
+            <h2 id="titulo-contacto" style="text-align: center;">Contáctanos</h2>
+            <form accept="#" method="post">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+                </div>
+                <div>
+                    <label for="email">Correo:</label>
+                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+                </div>
+                <div>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensaje</button>
+                <p class="muted" style="margin-top: 1rem; text-align: center;">Gracias por contactarnos. Te responderemos pronto.</p>
+            </form>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p> <span id="anio">2025</span> Cafeteria - Todos los derechos son reservados</p>
+            <p> <span id="anio">2025</span> Cafetería Alexia - Todos los derechos reservados</p>
             <nav aria-label="Navegacion Secundaria">
-                <ul style="color: bisque;">
-                    <li><a href="#Aviso" style="color: #9ad">Aviso de privacidad</a></li>
-                    <li><a href="#Terminos" style="color: #9ad">Terminos y Condiciones</a></li>
+                <ul>
+                    <li><a href="#Aviso">Aviso de privacidad</a></li>
+                    <li><a href="#Terminos">Términos y Condiciones</a></li>
                 </ul>
             </nav>
             <small class="muted">Diseñado por Andre Siqueiros</small>
         </div>
     </footer>
+
+    <script src="/js/scripts.js"></script>
 </body>
 </html>

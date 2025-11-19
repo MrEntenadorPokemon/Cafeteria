@@ -1,0 +1,424 @@
+/* --- VARIABLES DE COLOR --- */
+:root {
+    --cafe-oscuro: #3e2723;
+    --cafe-medio: #6d4c41;
+    --cafe-claro: #d7ccc8;
+    --crema: #f5f5f5;
+    --blanco: #ffffff;
+    --acento: #d84315;
+    --texto-principal: #333333;
+    --texto-secundario: #666666;
+    
+    /* Colores de Promoción */
+    --promo-fondo: #ffe4e9;
+    --promo-acento: #c94f7c;
+    --promo-borde: #d4af37;
+
+    --fuente-titulos: 'Lora', serif;
+    --fuente-texto: 'Poppins', sans-serif;
+    
+    --borde-radio: 8px;
+    --sombra: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    background-color: var(--crema);
+    color: var(--texto-principal);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--borde-radio);
+}
+
+/* --- UTILIDADES --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.muted {
+    color: var(--texto-secundario);
+    font-size: 0.9em;
+}
+
+.pill {
+    background-color: var(--acento);
+    color: var(--blanco);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* --- 1. BANNER SUPERIOR DE PROMOCIÓN --- */
+.banner-promo {
+    position: sticky; /* Fijo en la parte superior al hacer scroll */
+    top: 0;
+    background-color: var(--promo-acento); /* rosa fuerte */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.banner-texto {
+    text-align: center;
+}
+
+.btn-cerrar-banner {
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-cerrar-banner:hover {
+    background-color: var(--blanco);
+    color: var(--promo-acento);
+}
+
+/* Sección de promoción con contador (si se usara en el cuerpo) */
+.promo {
+    background-color: var(--promo-fondo);
+    border-top: 3px solid var(--promo-borde);
+    border-bottom: 3px solid var(--promo-borde);
+    text-align: center;
+    padding: 15px 10px;
+    margin-bottom: 2rem;
+}
+
+.promo-titulo {
+    font-weight: bold;
+    color: var(--promo-acento);
+    margin: 5px 0;
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+}
+
+.promo-detalle {
+    margin: 5px 0;
+    color: #555;
+}
+
+.promo-tiempo {
+    margin: 5px 0;
+    color: var(--promo-borde);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--blanco);
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 4px solid var(--cafe-oscuro);
+}
+
+header h1 {
+    font-family: var(--fuente-titulos);
+    color: var(--cafe-oscuro);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Navegación básica */
+header nav {
+    margin-top: 1.5rem;
+}
+header nav a {
+    text-decoration: none;
+    color: var(--cafe-medio);
+    margin: 0 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+header nav a:hover {
+    color: var(--acento);
+}
+
+/* --- SISTEMA DE GRID GENERAL --- */
+.grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 2fr 1fr; /* Contenido principal mas ancho que el aside */
+    }
+}
+
+/* Grid para las tarjetas 3D */
+.grid-reposteria { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+
+/* --- 2. TARJETAS 3D VOLTEABLES --- */
+.tarjeta { /* Contenedor de la tarjeta */
+    perspective: 1000px; /* Profundidad para el giro 3D */
+    height: 320px; /* Altura fija para el giro */
+}
+
+.tarjeta-inner { /* Elemento interior que gira */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Mantiene el 3D de frente y reverso */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.tarjeta:hover .tarjeta-inner { /* Giro al pasar el mouse */
+    transform: rotateY(180deg);
+}
+
+/* Frente y reverso comparten estilo base */
+.tarjeta-front, .tarjeta-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la "cara de atrás" cuando no debe verse */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Estilo del Frente: imagen y título */
+.tarjeta-front {
+    background-color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tarjeta-front img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.tarjeta-front h3 {
+    margin-top: 10px;
+    color: var(--promo-acento);
+    margin-bottom: 0;
+    font-size: 1.4rem;
+}
+
+/* Estilo del Reverso: info del producto */
+.tarjeta-back {
+    background-color: var(--promo-fondo); /* fondo rosa claro */
+    color: var(--texto-principal);
+    transform: rotateY(180deg); /* La cara de atrás inicia girada */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.tarjeta-back h3 {
+    color: var(--promo-acento);
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.tarjeta-back p {
+    margin: 5px 0;
+}
+
+/* Nota Barista */
+.nota-barista {
+    margin-top: 10px;
+    color: var(--promo-borde);
+    font-style: italic;
+    font-weight: 600;
+}
+
+
+/* --- SECCIONES GENERALES --- */
+section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: var(--blanco);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra);
+}
+
+h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--cafe-oscuro);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--cafe-claro);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- BLOG / ARTICULOS RECIENTES --- */
+#articulos article {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dotted var(--cafe-claro);
+}
+
+#articulos article:last-of-type {
+    border-bottom: none;
+}
+
+#articulos h3, #articulos h1 { 
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: var(--acento);
+    text-decoration: none;
+    font-weight: 600;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- ASIDE (BARRA LATERAL) --- */
+aside {
+    background-color: var(--cafe-oscuro);
+    color: var(--blanco);
+    padding: 1.5rem;
+    border-radius: var(--borde-radio);
+    height: fit-content;
+}
+
+aside h4 {
+    color: var(--blanco); 
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+aside .muted {
+    color: rgba(255,255,255,0.7);
+}
+
+address {
+    font-style: normal;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* --- FORMULARIO --- */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--cafe-medio);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--acento);
+    box-shadow: 0 0 0 3px rgba(216, 67, 21, 0.1);
+}
+
+button[type="submit"] {
+    background-color: var(--cafe-medio);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--acento);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+footer a {
+    color: #999 !important;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+footer a:hover {
+    color: var(--blanco) !important;
+}
